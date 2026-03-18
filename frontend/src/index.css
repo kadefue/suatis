@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: theme('colors.sua.600');
+    --color-primary-light: theme('colors.sua.50');
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans antialiased;
+  }
+
+  * {
+    @apply border-gray-200;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-sua-600 text-white hover:bg-sua-700 focus:ring-sua-500;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-gray-400;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-gray-600 hover:bg-gray-100;
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-sua-500 focus:border-transparent transition;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-green  { @apply badge bg-green-100 text-green-800; }
+  .badge-blue   { @apply badge bg-blue-100 text-blue-800; }
+  .badge-purple { @apply badge bg-purple-100 text-purple-800; }
+  .badge-amber  { @apply badge bg-amber-100 text-amber-800; }
+  .badge-red    { @apply badge bg-red-100 text-red-800; }
+  .badge-gray   { @apply badge bg-gray-100 text-gray-700; }
+
+  .page-title {
+    @apply text-2xl font-display font-semibold text-gray-900;
+  }
+
+  .section-title {
+    @apply text-lg font-display font-semibold text-gray-800;
+  }
+
+  .table-container {
+    @apply overflow-x-auto rounded-xl border border-gray-200;
+  }
+  .table {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+  .table thead { @apply bg-gray-50; }
+  .table th {
+    @apply px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider;
+  }
+  .table tbody { @apply bg-white divide-y divide-gray-100; }
+  .table td { @apply px-4 py-3 text-sm text-gray-700; }
+  .table tr:hover td { @apply bg-sua-50; }
+}
+
+/* Timetable grid */
+.timetable-grid {
+  display: grid;
+  grid-template-columns: 80px repeat(6, 1fr);
+  border-left: 1px solid #e5e7eb;
+  border-top: 1px solid #e5e7eb;
+}
+
+.timetable-cell {
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  min-height: 56px;
+}
+
+.timetable-header {
+  @apply bg-sua-700 text-white text-xs font-semibold text-center py-2 px-1;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.session-card {
+  @apply rounded text-xs p-1.5 cursor-pointer transition-all duration-100;
+  line-height: 1.3;
+}
+.session-lecture  { @apply bg-sua-100 border border-sua-300 text-sua-900 hover:bg-sua-200; }
+.session-practical { @apply bg-amber-50 border border-amber-300 text-amber-900 hover:bg-amber-100; }
